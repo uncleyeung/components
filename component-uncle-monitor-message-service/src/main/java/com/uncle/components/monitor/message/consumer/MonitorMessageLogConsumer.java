@@ -28,7 +28,7 @@ import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,7 +65,7 @@ public class MonitorMessageLogConsumer implements RocketMQListener<ReceiveMessag
             MonitorMessageLogDto monitorMessageLogDto = JSON.parseObject(receiveMessageDTO.getMessageBody(), MonitorMessageLogDto.class);
 
 
-            ReturnCode result = forceTransactionTemplate.execute((OutstandingTransactionCallback<ReturnCode>) status -> {
+            forceTransactionTemplate.execute((OutstandingTransactionCallback<ReturnCode>) status -> {
                 //执行入库操作
                 messageLogMapper.insert(this.buildMessageLog(monitorMessageLogDto));
 
@@ -100,14 +100,10 @@ public class MonitorMessageLogConsumer implements RocketMQListener<ReceiveMessag
 
         MonitorMessageLogBoWithBLOBs clone = monitorMessageLogDto.clone(MonitorMessageLogBoWithBLOBs.class);
 
-        try {
-            if (!StringUtils.isBlank(monitorMessageLogDto.getExceptionInfo())) {
-                clone.setExceptionInfo(monitorMessageLogDto.getExceptionInfo().getBytes("UTF-8"));
-            }
-            clone.setMessageBody(monitorMessageLogDto.getMessageBody().getBytes("UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            log.error("monitorMessageLogDto:ExceptionInfo/MessageBody | 转二进制数组异常 | 异常信息:{}", e.getMessage());
+        if (!StringUtils.isBlank(monitorMessageLogDto.getExceptionInfo())) {
+            clone.setExceptionInfo(monitorMessageLogDto.getExceptionInfo().getBytes(StandardCharsets.UTF_8));
         }
+        clone.setMessageBody(monitorMessageLogDto.getMessageBody().getBytes(StandardCharsets.UTF_8));
 
         clone.setCreateTime(new Date());
         clone.setUpdateTime(new Date());

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan(basePackages = {
-        "com.chaos.components.monitor.message"
+        "com.uncle.components.monitor.message"
 })
 @MapperScan(basePackages = {
         "com.chaos.components.monitor.message.dao"

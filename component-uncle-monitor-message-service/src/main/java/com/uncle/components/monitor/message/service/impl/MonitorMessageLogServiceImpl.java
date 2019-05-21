@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class MonitorMessageLogServiceImpl implements MonitorMessageLogService {
 
-    private static final String CHAOS_MONITOR_MESSAGE_LOG_TOPIC = "CHAOS_MONITOR_MESSAGE_LOG_TOPIC";
+    private static final String CHAOS_MONITOR_MESSAGE_LOG_TOPIC = "UNCLE_MONITOR_MESSAGE_LOG_TOPIC";
 
     @Reference(version = "1.0.0")
     private MessageFacade componentVipayMessageFacade;
@@ -29,7 +29,7 @@ public class MonitorMessageLogServiceImpl implements MonitorMessageLogService {
         sendMessageDTO.setMessageBody(JSON.toJSONString(dto));
         sendMessageDTO.setConsumerQueue(CHAOS_MONITOR_MESSAGE_LOG_TOPIC);
         sendMessageDTO.setBusinessUnique(dto.getBusinessId());
-        String messageId = componentVipayMessageFacade.saveAndSendMessage(sendMessageDTO);
+        componentVipayMessageFacade.saveAndSendMessage(sendMessageDTO);
         log.info(CHAOS_MONITOR_MESSAGE_LOG_TOPIC + " | 消息发送成功消息体:[{}]", dto);
     }
 }

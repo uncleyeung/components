@@ -31,8 +31,6 @@ public class NotifyMailServiceImpl implements NotifyService<MailRecordTemplateEo
             log.info("异常信息推送邮件成功:{}", JSON.toJSONString(template));
             return true;
         } catch (PendingException e) {
-            //todo
-            e.printStackTrace();
             return false;
         }
     }

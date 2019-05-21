@@ -9,6 +9,8 @@ import java.io.StringWriter;
  * @date 2019/3/22 11:18
  */
 public class ExceptionUtils {
+    private ExceptionUtils() {
+    }
 
     /**
      * 获取全部的异常信息
@@ -18,13 +20,10 @@ public class ExceptionUtils {
      */
     public static String getStackTrace(Throwable throwable) {
         StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
 
-        try {
+        try (PrintWriter pw = new PrintWriter(sw)) {
             throwable.printStackTrace(pw);
             return sw.toString();
-        } finally {
-            pw.close();
         }
     }
 }
