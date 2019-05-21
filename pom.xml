@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.uncle</groupId>
+    <artifactId>components</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>uncle-monitor-message-api</module>
+        <module>uncle-monitor-message-service</module>
+        <module>uncle-component-service</module>
+    </modules>
+
+    <parent>
+        <groupId>com.outstanding</groupId>
+        <artifactId>go-framework-parent</artifactId>
+        <version>3.1.0-SNAPSHOT</version>
+    </parent>
+
+    <url>http://maven.apache.org</url>
+    <description>uncle组件市场</description>
+
+    <!-- 项目属性 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <message.api.version>1.0.0.0-SNAPSHOT</message.api.version>
+        <sms.api.version>1.0.0.0-SNAPSHOT</sms.api.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--业务模块 start -->
+            <dependency>
+                <groupId>com.chaos</groupId>
+                <artifactId>message-api</artifactId>
+                <version>${message.api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.uncle</groupId>
+                <artifactId>uncle-monitor-message-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.uncle</groupId>
+                <artifactId>uncle-monitor-message-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.chaos</groupId>
+                <artifactId>chaos-sms-api</artifactId>
+                <version>${sms.api.version}</version>
+            </dependency>
+            <!--业务模块 end -->
+        </dependencies>
+    </dependencyManagement>
+
+</project>

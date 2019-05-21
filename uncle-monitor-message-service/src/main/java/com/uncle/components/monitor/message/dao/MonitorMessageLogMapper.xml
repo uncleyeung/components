@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uncle.components.monitor.message.dao.MonitorMessageLogMapper">
+  <resultMap id="BaseResultMap" type="com.uncle.components.monitor.message.bo.MonitorMessageLogBo">
+    <id column="ID" jdbcType="NUMERIC" property="id" />
+    <result column="MESSAGE_ID" jdbcType="VARCHAR" property="messageId" />
+    <result column="MESSAGE_BORN_HOST" jdbcType="VARCHAR" property="messageBornHost" />
+    <result column="MESSAGE_TAG" jdbcType="VARCHAR" property="messageTag" />
+    <result column="MESSAGE_TOPIC" jdbcType="VARCHAR" property="messageTopic" />
+    <result column="STATUS" property="status" jdbcType="NUMERIC"
+            javaType="com.uncle.components.monitor.message.api.enums.MsgStatusEnum"
+            typeHandler="com.outstanding.framework.plugin.mybatis.db.UniversalEnumHandler"/>
+    <result column="BUSINESS_ID" jdbcType="VARCHAR" property="businessId" />
+    <result column="EVENT_CODE" jdbcType="VARCHAR" property="eventCode" />
+    <result column="SYSTEM_CODE" jdbcType="VARCHAR" property="system" />
+    <result column="MODULE_CODE" jdbcType="VARCHAR" property="module" />
+    <result column="ACTION_CODE" jdbcType="VARCHAR" property="action" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="VERSION" property="version" jdbcType="NUMERIC" />
+    <result column="DEL_STATE" property="delState" jdbcType="NUMERIC"
+            javaType="com.outstanding.framework.core.DelStateEnum"
+            typeHandler="com.outstanding.framework.plugin.mybatis.db.UniversalEnumHandler"/>
+    <result column="DEF_1" jdbcType="VARCHAR" property="def1" />
+    <result column="DEF_2" jdbcType="VARCHAR" property="def2" />
+    <result column="DEF_3" jdbcType="VARCHAR" property="def3" />
+    <result column="DEF_4" jdbcType="VARCHAR" property="def4" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.uncle.components.monitor.message.bo.MonitorMessageLogBoWithBLOBs">
+    <result column="MESSAGE_BODY" jdbcType="BLOB" property="messageBody" />
+    <result column="EXCEPTION_INFO" jdbcType="BLOB" property="exceptionInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, MESSAGE_ID, MESSAGE_BORN_HOST, MESSAGE_TAG, MESSAGE_TOPIC, STATUS, BUSINESS_ID, 
+    EVENT_CODE, SYSTEM_CODE, MODULE_CODE, ACTION_CODE, REMARK, CREATE_TIME, UPDATE_TIME, 
+    VERSION, DEL_STATE, DEF_1, DEF_2, DEF_3, DEF_4
+  </sql>
+  <sql id="Blob_Column_List">
+    MESSAGE_BODY, EXCEPTION_INFO
+  </sql>
+  <select id="selectByBusinessId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from MONITOR_MESSAGE_LOG
+    where BUSINESS_ID = #{businessId,jdbcType=NUMERIC}
+  </select>
+
+  <select id="selectByMessageId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from MONITOR_MESSAGE_LOG
+    where MESSAGE_ID = #{messageId,jdbcType=NUMERIC}
+  </select>
+
+  <insert id="insert" parameterType="com.uncle.components.monitor.message.bo.MonitorMessageLogBoWithBLOBs">
+    insert into MONITOR_MESSAGE_LOG (ID, MESSAGE_ID, MESSAGE_BORN_HOST,
+      MESSAGE_TAG, MESSAGE_TOPIC, STATUS, 
+      BUSINESS_ID, EVENT_CODE, SYSTEM_CODE, 
+      MODULE_CODE, ACTION_CODE, REMARK, 
+      CREATE_TIME, UPDATE_TIME, VERSION, 
+      DEL_STATE, DEF_1, DEF_2, 
+      DEF_3, DEF_4, MESSAGE_BODY, 
+      EXCEPTION_INFO)
+    values (
+      seq_monitor_message_warn.NEXTVAL,
+      #{messageId,jdbcType=VARCHAR},
+      #{messageBornHost,jdbcType=VARCHAR},
+      #{messageTag,jdbcType=VARCHAR},
+      #{messageTopic,jdbcType=VARCHAR},
+      #{status,typeHandler=com.outstanding.framework.plugin.mybatis.db.UniversalEnumHandler,javaType=MsgStatusEnum,jdbcType=NUMERIC},
+      #{businessId,jdbcType=VARCHAR},
+      #{eventCode,jdbcType=VARCHAR},
+      #{system,jdbcType=VARCHAR},
+      #{module,jdbcType=VARCHAR},
+      #{action,jdbcType=VARCHAR},
+      #{remark,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{updateTime,jdbcType=TIMESTAMP},
+      #{version,jdbcType=NUMERIC},
+      #{delState,typeHandler=com.outstanding.framework.plugin.mybatis.db.UniversalEnumHandler,javaType=com.outstanding.framework.core.DelStateEnum,jdbcType=NUMERIC},
+      #{def1,jdbcType=VARCHAR},
+      #{def2,jdbcType=VARCHAR},
+      #{def3,jdbcType=VARCHAR},
+      #{def4,jdbcType=VARCHAR},
+      #{messageBody,jdbcType=BLOB},
+      #{exceptionInfo,jdbcType=BLOB})
+    <selectKey keyProperty="id" resultType="long">
+      select seq_monitor_message_warn.currval from dual
+    </selectKey>
+  </insert>
+</mapper>
