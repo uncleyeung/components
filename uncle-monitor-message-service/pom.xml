@@ -24,12 +24,12 @@
         </dependency>
 
         <dependency>
-            <groupId>com.chaos</groupId>
+            <groupId>com.uncle</groupId>
             <artifactId>message-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.chaos</groupId>
-            <artifactId>chaos-sms-api</artifactId>
+            <groupId>com.uncle</groupId>
+            <artifactId>sms-api</artifactId>
         </dependency>
 
         <dependency>

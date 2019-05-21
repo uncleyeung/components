@@ -4,8 +4,8 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
 import com.uncle.components.monitor.message.api.dto.MonitorMessageLogDto;
 import com.uncle.components.monitor.message.service.MonitorMessageLogService;
-import com.chaos.message.api.MessageFacade;
-import com.chaos.message.api.dto.SendMessageDTO;
+import com.uncle.message.api.MessageFacade;
+import com.uncle.message.api.dto.SendMessageDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

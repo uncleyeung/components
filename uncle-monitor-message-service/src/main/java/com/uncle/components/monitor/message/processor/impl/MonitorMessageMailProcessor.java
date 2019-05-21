@@ -6,7 +6,7 @@ import com.uncle.components.monitor.message.api.utils.SplitUtil;
 import com.uncle.components.monitor.message.eo.MailRecordTemplateEo;
 import com.uncle.components.monitor.message.processor.NotifyProcessor;
 import com.uncle.components.monitor.message.service.NotifyService;
-import com.chaos.mail.api.bo.SimpleMailBo;
+import com.uncle.mail.api.bo.SimpleMailBo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

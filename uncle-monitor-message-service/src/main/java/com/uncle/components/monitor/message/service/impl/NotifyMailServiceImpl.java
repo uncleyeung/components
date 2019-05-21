@@ -2,10 +2,10 @@ package com.uncle.components.monitor.message.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
+import com.outstanding.framework.core.PendingException;
 import com.uncle.components.monitor.message.eo.MailRecordTemplateEo;
 import com.uncle.components.monitor.message.service.NotifyService;
-import com.chaos.mail.api.MailSendFacade;
-import com.outstanding.framework.core.PendingException;
+import com.uncle.mail.api.MailSendFacade;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;

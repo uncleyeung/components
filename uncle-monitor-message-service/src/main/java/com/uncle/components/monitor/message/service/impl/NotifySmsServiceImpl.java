@@ -3,7 +3,7 @@ package com.uncle.components.monitor.message.service.impl;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.uncle.components.monitor.message.eo.SmsRecordTemplateEo;
 import com.uncle.components.monitor.message.service.NotifyService;
-import com.chaos.sms.api.SmsSendRecordFacade;
+import com.uncle.sms.api.SmsSendRecordFacade;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;

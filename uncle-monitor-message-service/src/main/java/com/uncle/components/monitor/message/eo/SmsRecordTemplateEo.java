@@ -1,8 +1,8 @@
 package com.uncle.components.monitor.message.eo;
 
-import com.chaos.sms.api.bo.SmsGatewayBO;
-import com.chaos.sms.api.bo.SmsRecordBO;
-import com.chaos.sms.api.bo.SmsTemplateBO;
+import com.uncle.sms.api.bo.SmsGatewayBO;
+import com.uncle.sms.api.bo.SmsRecordBO;
+import com.uncle.sms.api.bo.SmsTemplateBO;
 
 /**
  * @author 杨戬

@@ -26,15 +26,15 @@
     <!-- 项目属性 -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <message.api.version>1.0.0.0-SNAPSHOT</message.api.version>
-        <sms.api.version>1.0.0.0-SNAPSHOT</sms.api.version>
+        <message.api.version>1.3.5.0-SNAPSHOT</message.api.version>
+        <sms.api.version>1.3.5.0-SNAPSHOT</sms.api.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <!--业务模块 start -->
             <dependency>
-                <groupId>com.chaos</groupId>
+                <groupId>com.uncle</groupId>
                 <artifactId>message-api</artifactId>
                 <version>${message.api.version}</version>
             </dependency>
@@ -51,8 +51,8 @@
             </dependency>
 
             <dependency>
-                <groupId>com.chaos</groupId>
-                <artifactId>chaos-sms-api</artifactId>
+                <groupId>com.uncle</groupId>
+                <artifactId>sms-api</artifactId>
                 <version>${sms.api.version}</version>
             </dependency>
             <!--业务模块 end -->
