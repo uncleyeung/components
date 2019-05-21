@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>components</artifactId>
+        <groupId>com.uncle</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>component-uncle-monitor-message-service</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <!--跳过deploy-->
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.uncle</groupId>
+            <artifactId>component-uncle-monitor-message-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.uncle</groupId>
+            <artifactId>message-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.uncle</groupId>
+            <artifactId>sms-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.outstanding</groupId>
+            <artifactId>framework-container-dubbo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.outstanding</groupId>
+            <artifactId>framework-base</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.outstanding</groupId>
+            <artifactId>framework-plugin-serializer-enum</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.outstanding</groupId>
+            <artifactId>framework-plugin-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.outstanding</groupId>
+            <artifactId>framework-plugin-rocketmq</artifactId>
+        </dependency>
+
+        <!--go框架 end -->
+
+        <!-- oracle -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>8</version>
+        </dependency>
+
+        <!--test-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
