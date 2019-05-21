@@ -6,7 +6,7 @@ import com.chaos.sms.api.bo.SmsTemplateBO;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 2019/3/22 14:58
  */
 public class SmsRecordTemplateEo {

@@ -4,7 +4,7 @@ import com.outstanding.framework.core.BaseEnum;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  */
 public enum NotifyTypeEnum implements BaseEnum<NotifyTypeEnum, Integer> {
     /**

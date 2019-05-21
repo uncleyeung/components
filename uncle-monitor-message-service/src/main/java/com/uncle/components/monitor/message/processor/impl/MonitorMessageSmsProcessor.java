@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 /**
  * @author 杨戬
  * @className MonitorMessageLogConsumerImpl
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 2019/3/22 15:25
  */
 @Slf4j

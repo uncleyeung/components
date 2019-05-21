@@ -1,13 +1,10 @@
 package com.uncle.components.monitor.message.bo.base;
 
 import com.outstanding.framework.core.EntityObject;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 16:28 2018/11/13
  */
 public class BaseDefBo extends EntityObject {

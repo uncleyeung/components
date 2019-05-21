@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 2019/3/22 14:04
  */
 @Service("messageMonitorLogService")

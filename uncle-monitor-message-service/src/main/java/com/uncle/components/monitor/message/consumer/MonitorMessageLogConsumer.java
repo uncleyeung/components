@@ -38,7 +38,7 @@ import java.util.Set;
  * 消费消息日志消息
  *
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  */
 @Slf4j
 @RocketMQMessageListener(topic = "${check.rocketmq.consumerMonitorLogTopic}", consumerGroup = "${rocketmq.consumer.group}")

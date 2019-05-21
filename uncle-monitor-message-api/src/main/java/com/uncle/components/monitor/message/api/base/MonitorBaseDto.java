@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 2019/3/22 11:17
  */
 public class MonitorBaseDto extends AbstractObject implements Serializable {

@@ -2,7 +2,7 @@ package com.uncle.components.monitor.message.api.aspect;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  */
 public abstract class AbstractMessageMonitorAspect {
 

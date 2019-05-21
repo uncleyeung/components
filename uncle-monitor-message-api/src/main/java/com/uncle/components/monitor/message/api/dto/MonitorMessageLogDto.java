@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 2019/3/22 11:16
  */
 public class MonitorMessageLogDto extends MonitorBaseDto {

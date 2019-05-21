@@ -5,7 +5,7 @@ import java.io.StringWriter;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 2019/3/22 11:18
  */
 public class ExceptionUtils {

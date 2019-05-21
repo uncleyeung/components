@@ -5,7 +5,7 @@ import com.uncle.components.monitor.message.bo.base.BaseDefBo;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 2019/3/22 16:43
  */
 public class MonitorMessageLogBo extends BaseDefBo{

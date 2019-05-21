@@ -2,7 +2,7 @@ package com.uncle.components.monitor.message.api.dto;
 
 /**
  * @author 杨戬
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 2019/3/22 11:16
  */
 public class MonitorMessageLogAndExDto extends MonitorMessageLogDto {

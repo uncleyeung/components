@@ -5,7 +5,7 @@ import com.uncle.components.monitor.message.api.dto.MonitorMessageLogDto;
 /**
  * @author 杨戬
  * @className NotifyProcessor
- * @email yangb@chaosource.com
+ * @email yangbo@email.com
  * @date 2019/3/22 15:34
  */
 public interface NotifyProcessor<T> {
