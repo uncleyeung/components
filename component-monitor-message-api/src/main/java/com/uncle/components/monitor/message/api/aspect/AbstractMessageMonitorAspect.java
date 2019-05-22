@@ -10,7 +10,7 @@ public abstract class AbstractMessageMonitorAspect {
     /**
      * 例如:切点为*Consumer的方法
      *
-     * @Pointcut("execution (* com.chaos..*Consumer.onMessage(..))")
+     * @Pointcut("execution (* com.uncle..*Consumer.onMessage(..))")
      */
     protected abstract void pointcut();
 
