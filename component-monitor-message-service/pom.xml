@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>component-uncle-monitor-message-service</artifactId>
+    <artifactId>component-monitor-message-service</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -18,20 +18,23 @@
     </properties>
 
     <dependencies>
+        <!--业务-->
         <dependency>
             <groupId>com.uncle</groupId>
-            <artifactId>component-uncle-monitor-message-api</artifactId>
+            <artifactId>component-monitor-message-api</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.uncle</groupId>
             <artifactId>message-api</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.uncle</groupId>
             <artifactId>sms-api</artifactId>
         </dependency>
 
+        <!--核心-->
         <dependency>
             <groupId>com.uncle</groupId>
             <artifactId>dubbo</artifactId>
@@ -50,18 +53,12 @@
 
         <dependency>
             <groupId>com.uncle</groupId>
-            <artifactId>plugin-serializer-enum</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.uncle</groupId>
             <artifactId>plugin-mybatis</artifactId>
         </dependency>
         <dependency>
             <groupId>com.uncle</groupId>
             <artifactId>plugin-rocketmq</artifactId>
         </dependency>
-
-        <!--go框架 end -->
 
         <!-- oracle -->
         <dependency>

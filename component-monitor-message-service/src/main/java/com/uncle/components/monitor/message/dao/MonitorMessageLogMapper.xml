@@ -9,7 +9,7 @@
     <result column="MESSAGE_TOPIC" jdbcType="VARCHAR" property="messageTopic" />
     <result column="STATUS" property="status" jdbcType="NUMERIC"
             javaType="com.uncle.components.monitor.message.api.enums.MsgStatusEnum"
-            typeHandler="com.outstanding.framework.plugin.mybatis.db.UniversalEnumHandler"/>
+            typeHandler="com.uncle.plugin.mybatis.db.UniversalEnumHandler"/>
     <result column="BUSINESS_ID" jdbcType="VARCHAR" property="businessId" />
     <result column="EVENT_CODE" jdbcType="VARCHAR" property="eventCode" />
     <result column="SYSTEM_CODE" jdbcType="VARCHAR" property="system" />
@@ -20,8 +20,8 @@
     <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="VERSION" property="version" jdbcType="NUMERIC" />
     <result column="DEL_STATE" property="delState" jdbcType="NUMERIC"
-            javaType="com.outstanding.framework.core.DelStateEnum"
-            typeHandler="com.outstanding.framework.plugin.mybatis.db.UniversalEnumHandler"/>
+            javaType="com.uncle.core.DelStateEnum"
+            typeHandler="com.uncle.plugin.mybatis.db.UniversalEnumHandler"/>
     <result column="DEF_1" jdbcType="VARCHAR" property="def1" />
     <result column="DEF_2" jdbcType="VARCHAR" property="def2" />
     <result column="DEF_3" jdbcType="VARCHAR" property="def3" />
@@ -72,7 +72,7 @@
       #{messageBornHost,jdbcType=VARCHAR},
       #{messageTag,jdbcType=VARCHAR},
       #{messageTopic,jdbcType=VARCHAR},
-      #{status,typeHandler=com.outstanding.framework.plugin.mybatis.db.UniversalEnumHandler,javaType=MsgStatusEnum,jdbcType=NUMERIC},
+      #{status,typeHandler=com.uncle.plugin.mybatis.db.UniversalEnumHandler,javaType=com.uncle.components.monitor.message.api.enums.MsgStatusEnum,jdbcType=NUMERIC},
       #{businessId,jdbcType=VARCHAR},
       #{eventCode,jdbcType=VARCHAR},
       #{system,jdbcType=VARCHAR},
@@ -82,7 +82,7 @@
       #{createTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP},
       #{version,jdbcType=NUMERIC},
-      #{delState,typeHandler=com.outstanding.framework.plugin.mybatis.db.UniversalEnumHandler,javaType=com.outstanding.framework.core.DelStateEnum,jdbcType=NUMERIC},
+      #{delState,typeHandler=com.uncle.plugin.mybatis.db.UniversalEnumHandler,javaType=com.uncle.core.DelStateEnum,jdbcType=NUMERIC},
       #{def1,jdbcType=VARCHAR},
       #{def2,jdbcType=VARCHAR},
       #{def3,jdbcType=VARCHAR},

@@ -1,11 +1,17 @@
 package com.uncle.components.monitor.message.api.enums;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.uncle.core.BaseEnum;
+import com.uncle.plugin.enumserializer.JsonEnumDeserializer;
+import com.uncle.plugin.enumserializer.JsonEnumSerializer;
 
 /**
  * @author 杨戬
  * @email yangbo@email.com
  */
+@JsonSerialize(using = JsonEnumSerializer.class)
+@JsonDeserialize(using = JsonEnumDeserializer.class)
 public enum MsgStatusEnum implements BaseEnum<MsgStatusEnum, Integer> {
     /**
      * 成功

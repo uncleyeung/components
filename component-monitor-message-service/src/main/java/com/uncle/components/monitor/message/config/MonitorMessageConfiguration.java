@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
         "com.uncle.components.monitor.message"
 })
 @MapperScan(basePackages = {
-        "com.chaos.components.monitor.message.dao"
+        "com.uncle.components.monitor.message.dao"
 })
 public class MonitorMessageConfiguration {
 

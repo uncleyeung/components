@@ -8,9 +8,9 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>component-uncle-monitor-message-api</module>
-        <module>component-uncle-monitor-message-service</module>
-        <module>component-uncle-service</module>
+        <module>component-monitor-message-api</module>
+        <module>component-monitor-message-service</module>
+        <module>component-service</module>
     </modules>
 
     <parent>
@@ -34,59 +34,26 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--核心-->
-            <dependency>
-                <groupId>com.uncle</groupId>
-                <artifactId>core</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.uncle</groupId>
-                <artifactId>base</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.uncle</groupId>
-                <artifactId>dubbo</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.uncle</groupId>
-                <artifactId>plugin-serializer-enum</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.uncle</groupId>
-                <artifactId>plugin-rocketmq</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.uncle</groupId>
-                <artifactId>plugin-mybatis</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
             <!--业务模块 start -->
+            <dependency>
+                <groupId>com.uncle</groupId>
+                <artifactId>sms-api</artifactId>
+                <version>${sms.api.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.uncle</groupId>
                 <artifactId>message-api</artifactId>
                 <version>${message.api.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.uncle</groupId>
-                <artifactId>component-uncle-monitor-message-api</artifactId>
+                <artifactId>component-monitor-message-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.uncle</groupId>
-                <artifactId>component-uncle-monitor-message-service</artifactId>
+                <artifactId>component-monitor-message-service</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.uncle</groupId>
-                <artifactId>sms-api</artifactId>
-                <version>${sms.api.version}</version>
             </dependency>
             <!--业务模块 end -->
         </dependencies>
