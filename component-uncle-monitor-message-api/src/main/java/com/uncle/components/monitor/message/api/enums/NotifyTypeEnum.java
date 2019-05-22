@@ -1,6 +1,6 @@
 package com.uncle.components.monitor.message.api.enums;
 
-import com.outstanding.framework.core.BaseEnum;
+import com.uncle.core.BaseEnum;
 
 /**
  * @author 杨戬

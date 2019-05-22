@@ -33,13 +33,13 @@
         </dependency>
 
         <dependency>
-            <groupId>com.outstanding</groupId>
-            <artifactId>framework-container-dubbo</artifactId>
+            <groupId>com.uncle</groupId>
+            <artifactId>dubbo</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.outstanding</groupId>
-            <artifactId>framework-base</artifactId>
+            <groupId>com.uncle</groupId>
+            <artifactId>base</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>junit</groupId>
@@ -49,16 +49,16 @@
         </dependency>
 
         <dependency>
-            <groupId>com.outstanding</groupId>
-            <artifactId>framework-plugin-serializer-enum</artifactId>
+            <groupId>com.uncle</groupId>
+            <artifactId>plugin-serializer-enum</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.outstanding</groupId>
-            <artifactId>framework-plugin-mybatis</artifactId>
+            <groupId>com.uncle</groupId>
+            <artifactId>plugin-mybatis</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.outstanding</groupId>
-            <artifactId>framework-plugin-rocketmq</artifactId>
+            <groupId>com.uncle</groupId>
+            <artifactId>plugin-rocketmq</artifactId>
         </dependency>
 
         <!--go框架 end -->
@@ -88,6 +88,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

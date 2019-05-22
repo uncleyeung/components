@@ -14,8 +14,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.outstanding</groupId>
-            <artifactId>framework-core</artifactId>
+            <groupId>com.uncle</groupId>
+            <artifactId>core</artifactId>
             <optional>true</optional>
         </dependency>
     </dependencies>
@@ -29,6 +29,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

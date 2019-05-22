@@ -1,13 +1,13 @@
 package com.uncle.components.monitor.message.bo.base;
 
-import com.outstanding.framework.core.EntityObject;
+import com.uncle.core.BaseEntityObject;
 
 /**
  * @author 杨戬
  * @email yangbo@email.com
  * @date 16:28 2018/11/13
  */
-public class BaseDefBo extends EntityObject {
+public class BaseDefBo extends BaseEntityObject {
     /**
      * 扩展字段
      */

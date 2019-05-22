@@ -2,9 +2,9 @@ package com.uncle.components.monitor.message.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
-import com.outstanding.framework.core.PendingException;
 import com.uncle.components.monitor.message.eo.MailRecordTemplateEo;
 import com.uncle.components.monitor.message.service.NotifyService;
+import com.uncle.core.UncleException;
 import com.uncle.mail.api.MailSendFacade;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -30,7 +30,7 @@ public class NotifyMailServiceImpl implements NotifyService<MailRecordTemplateEo
             mailSendFacade.sendSimpleMail(template.getRecord());
             log.info("异常信息推送邮件成功:{}", JSON.toJSONString(template));
             return true;
-        } catch (PendingException e) {
+        } catch (UncleException e) {
             return false;
         }
     }

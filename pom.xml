@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.uncle</groupId>
     <artifactId>components</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
@@ -15,9 +14,9 @@
     </modules>
 
     <parent>
-        <groupId>com.outstanding</groupId>
-        <artifactId>go-framework-parent</artifactId>
-        <version>3.1.0-SNAPSHOT</version>
+        <groupId>com.uncle</groupId>
+        <artifactId>modules</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <url>http://maven.apache.org</url>
@@ -35,6 +34,37 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--核心-->
+            <dependency>
+                <groupId>com.uncle</groupId>
+                <artifactId>core</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.uncle</groupId>
+                <artifactId>base</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.uncle</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.uncle</groupId>
+                <artifactId>plugin-serializer-enum</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.uncle</groupId>
+                <artifactId>plugin-rocketmq</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.uncle</groupId>
+                <artifactId>plugin-mybatis</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
             <!--业务模块 start -->
             <dependency>
                 <groupId>com.uncle</groupId>
@@ -61,58 +91,4 @@
             <!--业务模块 end -->
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.4</version>
-                    <configuration>
-                        <encoding>${chartset.UTF8}</encoding>
-                        <aggregate>true</aggregate>
-                        <charset>${chartset.UTF8}</charset>
-                        <docencoding>${chartset.UTF8}</docencoding>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>attach-javadocs</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                            <configuration>
-                                <additionalparam>-Xdoclint:none</additionalparam>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-            <plugin>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>default-cli</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <phase>validate</phase>
-                        <configuration>
-                            <rules>
-                                <requireJavaVersion>
-                                    <message>
-                                        <![CDATA[你使用的是旧版本的jdk. 更换jdk版本为 JDK ${java.version}.]]>
-                                    </message>
-                                    <version>[${java.version}.0,)</version>
-                                </requireJavaVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>

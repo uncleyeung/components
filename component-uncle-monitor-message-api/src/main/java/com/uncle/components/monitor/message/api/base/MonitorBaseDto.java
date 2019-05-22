@@ -1,6 +1,6 @@
 package com.uncle.components.monitor.message.api.base;
 
-import com.outstanding.framework.core.AbstractObject;
+import com.uncle.core.AbstractObject;
 
 import java.io.Serializable;
 
