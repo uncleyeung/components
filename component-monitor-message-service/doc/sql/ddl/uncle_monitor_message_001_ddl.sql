@@ -97,12 +97,12 @@ comment on column MONITOR_MESSAGE_LOG.DEF_4 is
 /*==============================================================*/
 /* Index: 'index_mmw_mi'                                        */
 /*==============================================================*/
-create index index_mmw_mi on MONITOR_MESSAGE_LOG ( MESSAGE_ID ASC )tablespace chaos_components_index;
+create index index_mmw_mi on MONITOR_MESSAGE_LOG ( MESSAGE_ID ASC )tablespace uncle_components_index;
 
 /*==============================================================*/
 /* Index: 'index_mmw_bi'                                        */
 /*==============================================================*/
-create index index_mmw_bi on MONITOR_MESSAGE_LOG ( BUSINESS_ID ASC )tablespace chaos_components_index;
+create index index_mmw_bi on MONITOR_MESSAGE_LOG ( BUSINESS_ID ASC )tablespace uncle_components_index;
 
 /*==============================================================*/
 /* seq: 'seq_MONITOR_MESSAGE_LOG'                                        */
