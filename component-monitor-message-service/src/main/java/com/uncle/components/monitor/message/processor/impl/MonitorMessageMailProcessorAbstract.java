@@ -4,9 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.uncle.components.monitor.message.api.dto.MonitorMessageLogDto;
 import com.uncle.components.monitor.message.api.utils.SplitUtil;
 import com.uncle.components.monitor.message.eo.MailRecordTemplateEo;
-import com.uncle.components.monitor.message.processor.NotifyProcessor;
+import com.uncle.components.monitor.message.processor.AbstractNotifyProcessor;
 import com.uncle.components.monitor.message.service.NotifyService;
 import com.uncle.mail.api.bo.SimpleMailBo;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -20,13 +21,11 @@ import java.util.concurrent.Future;
  */
 @Slf4j
 @Service("monitorMessageMailProcessor")
-public class MonitorMessageMailProcessor implements NotifyProcessor<MailRecordTemplateEo> {
+@NoArgsConstructor
+public class MonitorMessageMailProcessorAbstract extends AbstractNotifyProcessor<MailRecordTemplateEo> {
 
-
-    private NotifyService<MailRecordTemplateEo> notifyMailService;
-
-    public MonitorMessageMailProcessor(NotifyService<MailRecordTemplateEo> notifyMailService) {
-        this.notifyMailService = notifyMailService;
+    public MonitorMessageMailProcessorAbstract(NotifyService<MailRecordTemplateEo> service) {
+        super(service);
     }
 
     @Override
@@ -44,7 +43,7 @@ public class MonitorMessageMailProcessor implements NotifyProcessor<MailRecordTe
 
             mailRecordTemplateEo.setRecord(simpleMailBo);
             log.info("开始异常信息邮件推送:{} | 异常Topic:{} ｜messageId:{}", JSON.toJSONString(mailRecordTemplateEo), monitorMessageLogDto.getMessageTopic(), monitorMessageLogDto.getMessageId());
-            Future<Boolean> booleanFuture = notifyMailService.notifyAsync(mailRecordTemplateEo);
+            final Future<Boolean> booleanFuture = service.notifyAsync(mailRecordTemplateEo);
             booleanFuture.isDone();
         }
     }

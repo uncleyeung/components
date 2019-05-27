@@ -2,8 +2,9 @@ package com.uncle.components.monitor.message.processor.impl;
 
 import com.uncle.components.monitor.message.api.dto.MonitorMessageLogDto;
 import com.uncle.components.monitor.message.eo.SmsRecordTemplateEo;
-import com.uncle.components.monitor.message.processor.NotifyProcessor;
+import com.uncle.components.monitor.message.processor.AbstractNotifyProcessor;
 import com.uncle.components.monitor.message.service.NotifyService;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -15,19 +16,17 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service("monitorMessageSmsProcessor")
-public class MonitorMessageSmsProcessor implements NotifyProcessor<SmsRecordTemplateEo> {
+@NoArgsConstructor
+public class MonitorMessageSmsProcessorAbstract extends AbstractNotifyProcessor<SmsRecordTemplateEo> {
 
-
-    private NotifyService<SmsRecordTemplateEo> notifySmsService;
-
-    public MonitorMessageSmsProcessor(NotifyService<SmsRecordTemplateEo> notifySmsService) {
-        this.notifySmsService = notifySmsService;
+    public MonitorMessageSmsProcessorAbstract(NotifyService<SmsRecordTemplateEo> service) {
+        super(service);
     }
 
     @Override
     public void process(MonitorMessageLogDto monitorMessageLogDto) {
         //todo
         //失败到阈值要调用发送预警信息
-        notifySmsService.notifyAsync(new SmsRecordTemplateEo());
+        service.notifyAsync(new SmsRecordTemplateEo());
     }
 }

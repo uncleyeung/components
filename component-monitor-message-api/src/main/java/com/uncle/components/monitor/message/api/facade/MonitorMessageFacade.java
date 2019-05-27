@@ -15,4 +15,6 @@ public interface MonitorMessageFacade {
      * @param dto 监控体
      */
     void logInfo(MonitorMessageLogDto dto);
+
+    void testMessageConsumer();
 }

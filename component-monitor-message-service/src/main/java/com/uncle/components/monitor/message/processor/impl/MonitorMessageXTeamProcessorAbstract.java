@@ -2,8 +2,9 @@ package com.uncle.components.monitor.message.processor.impl;
 
 import com.uncle.components.monitor.message.api.dto.MonitorMessageLogDto;
 import com.uncle.components.monitor.message.eo.XTeamRecordTemplateEo;
-import com.uncle.components.monitor.message.processor.NotifyProcessor;
+import com.uncle.components.monitor.message.processor.AbstractNotifyProcessor;
 import com.uncle.components.monitor.message.service.NotifyService;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -15,18 +16,17 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service("monitorMessageXTeamProcessor")
-public class MonitorMessageXTeamProcessor implements NotifyProcessor<XTeamRecordTemplateEo> {
+@NoArgsConstructor
+public class MonitorMessageXTeamProcessorAbstract extends AbstractNotifyProcessor<XTeamRecordTemplateEo> {
 
-    private NotifyService<XTeamRecordTemplateEo> notifyXTeamService;
 
-    public MonitorMessageXTeamProcessor(NotifyService<XTeamRecordTemplateEo> notifyXTeamService) {
-        this.notifyXTeamService = notifyXTeamService;
+    public MonitorMessageXTeamProcessorAbstract(NotifyService<XTeamRecordTemplateEo> service) {
+        super(service);
     }
 
     @Override
     public void process(MonitorMessageLogDto monitorMessageLogDto) {
-        //todo
         //失败到阈值要调用发送预警信息
-        notifyXTeamService.notifyAsync(new XTeamRecordTemplateEo());
+        service.notifyAsync(new XTeamRecordTemplateEo());
     }
 }

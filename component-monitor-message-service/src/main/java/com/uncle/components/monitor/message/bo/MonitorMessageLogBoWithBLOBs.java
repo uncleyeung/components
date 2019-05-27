@@ -17,18 +17,18 @@ public class MonitorMessageLogBoWithBLOBs extends MonitorMessageLogBo implements
     private static final long serialVersionUID = 1L;
 
     public byte[] getMessageBody() {
-        return messageBody;
+        return messageBody.clone();
     }
 
     public void setMessageBody(byte[] messageBody) {
-        this.messageBody = messageBody;
+        this.messageBody = messageBody.clone();
     }
 
     public byte[] getExceptionInfo() {
-        return exceptionInfo;
+        return exceptionInfo.clone();
     }
 
     public void setExceptionInfo(byte[] exceptionInfo) {
-        this.exceptionInfo = exceptionInfo;
+        this.exceptionInfo = exceptionInfo.clone();
     }
 }

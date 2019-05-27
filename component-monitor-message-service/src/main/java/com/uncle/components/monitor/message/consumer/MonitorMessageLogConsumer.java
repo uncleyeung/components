@@ -6,13 +6,10 @@ import com.uncle.components.monitor.message.api.dto.MonitorMessageLogDto;
 import com.uncle.components.monitor.message.api.enums.NotifyTypeEnum;
 import com.uncle.components.monitor.message.bo.MonitorMessageLogBoWithBLOBs;
 import com.uncle.components.monitor.message.dao.MonitorMessageLogMapper;
-import com.uncle.components.monitor.message.eo.MailRecordTemplateEo;
-import com.uncle.components.monitor.message.eo.SmsRecordTemplateEo;
-import com.uncle.components.monitor.message.eo.XTeamRecordTemplateEo;
-import com.uncle.components.monitor.message.processor.NotifyProcessor;
-import com.uncle.components.monitor.message.processor.impl.MonitorMessageMailProcessor;
-import com.uncle.components.monitor.message.processor.impl.MonitorMessageSmsProcessor;
-import com.uncle.components.monitor.message.processor.impl.MonitorMessageXTeamProcessor;
+import com.uncle.components.monitor.message.processor.AbstractNotifyProcessor;
+import com.uncle.components.monitor.message.processor.impl.MonitorMessageMailProcessorAbstract;
+import com.uncle.components.monitor.message.processor.impl.MonitorMessageSmsProcessorAbstract;
+import com.uncle.components.monitor.message.processor.impl.MonitorMessageXTeamProcessorAbstract;
 import com.uncle.components.monitor.message.service.NotifyService;
 import com.uncle.core.DelStateEnum;
 import com.uncle.core.ReturnCode;
@@ -45,13 +42,12 @@ import java.util.Set;
 @Service
 public class MonitorMessageLogConsumer implements RocketMQListener<ReceiveMessageDTO> {
 
-
     @Resource
-    private NotifyService<MailRecordTemplateEo> notifyMailService;
+    private NotifyService notifyMailService;
     @Resource
-    private NotifyService<SmsRecordTemplateEo> notifySmsService;
+    private NotifyService notifySmsService;
     @Resource
-    private NotifyService<XTeamRecordTemplateEo> notifyXTeamService;
+    private NotifyService notifyXTeamService;
     @Resource
     private MonitorMessageLogMapper messageLogMapper;
     @Resource
@@ -82,10 +78,12 @@ public class MonitorMessageLogConsumer implements RocketMQListener<ReceiveMessag
 
     private void notifyRouting(MonitorMessageLogDto monitorMessageLogDto) {
 
-        Map<NotifyTypeEnum, NotifyProcessor> map = new HashMap<>();
-        map.put(NotifyTypeEnum.EMAIL, new MonitorMessageMailProcessor(notifyMailService));
-        map.put(NotifyTypeEnum.SMS, new MonitorMessageSmsProcessor(notifySmsService));
-        map.put(NotifyTypeEnum.XTEAM, new MonitorMessageXTeamProcessor(notifyXTeamService));
+        int initialCapacity = 3;
+
+        Map<NotifyTypeEnum, AbstractNotifyProcessor> map = new HashMap<>(initialCapacity);
+        map.put(NotifyTypeEnum.EMAIL, new MonitorMessageMailProcessorAbstract(notifyMailService));
+        map.put(NotifyTypeEnum.SMS, new MonitorMessageSmsProcessorAbstract(notifySmsService));
+        map.put(NotifyTypeEnum.XTEAM, new MonitorMessageXTeamProcessorAbstract(notifyXTeamService));
 
         Set<NotifyTypeEnum> notifyTypeEnums = map.keySet();
         for (NotifyTypeEnum key : notifyTypeEnums) {

@@ -25,7 +25,7 @@ spring:
 #   com.chaos.boss.dao : debug
 logging:
   level:
-   com.chaos.boss.dao : debug
+    com.uncle.components.monitor.message.dao : debug
 
 #=================================================================================
 # oracle \u914D\u7F6E
