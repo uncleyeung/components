@@ -2,7 +2,7 @@
 # \u57FA\u7840 \u914D\u7F6E
 #==================================================================================
 go:
-  applicationName: chaos-component-service
+  applicationName: uncle-component-service
 
 #=================================================================================
 # spring \u914D\u7F6E
@@ -11,7 +11,7 @@ spring:
   profiles:
     active: local
   application:
-     name: chaos-component-service
+     name: uncle-component-service
 #  redis:
 #     host: 61.14.255.57
 #     port: 6378
@@ -22,7 +22,7 @@ spring:
 #logging:
 #  path: /data/deploy/boss_service/logs
 #  level:
-#   com.chaos.boss.dao : debug
+#   com.uncle.boss.dao : debug
 logging:
   level:
     com.uncle.components.monitor.message.dao : debug
@@ -46,15 +46,15 @@ dubbo:
     protocol:
       port: -1
     application:
-        name: chaos-component-service
+        name: uncle-component-service
     consumer:
-        group: chaos
+        group: uncle
     provider:
-        group: chaos
+        group: uncle
         version: 1.0.0
     registry:
-        address: zookeeper://61.14.255.57:2184
-        id: chaos
+        address: zookeeper://127.0.0.1:2188
+        id: uncle
     monitor:
         protocol: dubbo
 #=================================================================================
@@ -70,13 +70,13 @@ dubbo:
 rocketmq:
   name-server: 61.14.255.57:9878
   producer:
-    group: chaos-component-service
+    group: uncle-component-service
   consumer:
-    group: chaos-component-service
+    group: uncle-component-service
     maxReconsumeTimes: 10
 check:
     rocketmq:
-        consumerMonitorLogTopic: CHAOS_MONITOR_MESSAGE_LOG_TOPIC
+        consumerMonitorLogTopic: uncle_MONITOR_MESSAGE_LOG_TOPIC
 
 
 
