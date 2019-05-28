@@ -36,19 +36,9 @@
 
         <!--核心-->
         <dependency>
+            <!--包换base-->
             <groupId>com.uncle</groupId>
             <artifactId>dubbo</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.uncle</groupId>
-            <artifactId>base</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>

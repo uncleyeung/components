@@ -26,6 +26,7 @@ spring:
 logging:
   level:
     com.uncle.components.monitor.message.dao : debug
+  path: /data/deploy/boss_service/logs
 
 #=================================================================================
 # oracle \u914D\u7F6E

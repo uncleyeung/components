@@ -42,6 +42,7 @@ import java.util.Set;
 @Service
 public class MonitorMessageLogConsumer implements RocketMQListener<ReceiveMessageDTO> {
 
+
     @Resource
     private NotifyService notifyMailService;
     @Resource

@@ -42,6 +42,11 @@ public class MonitorMessageMailProcessorAbstract extends AbstractNotifyProcessor
             simpleMailBo.setAddress(monitorMessageLogDto.getTarget());
 
             mailRecordTemplateEo.setRecord(simpleMailBo);
+            log.error("这是error的");
+            log.info("这是info的");
+            log.debug("这是debug的");
+            log.trace("这是trace的");
+            log.warn("这是warn的");
             log.info("开始异常信息邮件推送:{} | 异常Topic:{} ｜messageId:{}", JSON.toJSONString(mailRecordTemplateEo), monitorMessageLogDto.getMessageTopic(), monitorMessageLogDto.getMessageId());
             final Future<Boolean> booleanFuture = service.notifyAsync(mailRecordTemplateEo);
             booleanFuture.isDone();
