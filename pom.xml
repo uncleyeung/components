@@ -8,9 +8,9 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>component-monitor-message-api</module>
-        <module>component-monitor-message-service</module>
-        <module>component-service</module>
+        <module>yeung-java-component-monitor-message-api</module>
+        <module>yeung-java-component-monitor-message-service</module>
+        <module>yeung-java-component-service</module>
     </modules>
 
     <parent>
@@ -47,12 +47,12 @@
             </dependency>
             <dependency>
                 <groupId>com.uncle</groupId>
-                <artifactId>component-monitor-message-api</artifactId>
+                <artifactId>yeung-java-component-monitor-message-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.uncle</groupId>
-                <artifactId>component-monitor-message-service</artifactId>
+                <artifactId>yeung-java-component-monitor-message-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--业务模块 end -->

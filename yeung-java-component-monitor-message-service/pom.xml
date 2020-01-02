@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>component-monitor-message-service</artifactId>
+    <artifactId>yeung-java-component-monitor-message-service</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -21,7 +21,7 @@
         <!--业务-->
         <dependency>
             <groupId>com.uncle</groupId>
-            <artifactId>component-monitor-message-api</artifactId>
+            <artifactId>yeung-java-component-monitor-message-api</artifactId>
         </dependency>
 
         <dependency>
